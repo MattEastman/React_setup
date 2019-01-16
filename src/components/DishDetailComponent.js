@@ -10,6 +10,7 @@ class DishDetail extends Component{
     const renderDish=(dish)=> {
         if (dish != null)
             return(
+                <div class="container">
                 <Card>
                     <CardImg width="100%" src={dish.image} alt={dish.name} width='100%'/>
                     <CardBody>
@@ -17,6 +18,7 @@ class DishDetail extends Component{
                       <CardText>{dish.description}</CardText>
                     </CardBody>
                 </Card>
+                </div>
             );
         else
             return(<div></div>);
@@ -29,7 +31,7 @@ class DishDetail extends Component{
                     <div key={com.id}>
                     <ul className="list-unstyled">  
                         <li>{com.comment}</li>
-                        <li>by {com.author} on {com.date}</li>
+                        <li>by {com.author} on {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(com.date)))}</li>
                     </ul>
                     </div>    
                 );
